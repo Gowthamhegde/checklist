@@ -1,0 +1,270 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>TEF Travel Checklist (Exact Replica)</title>
+  <style>
+    /* Page & font */
+    @page { size: A4; margin: 18mm; }
+    html,body { height:100%; margin:0; padding:0; font-family: "Times New Roman", Times, serif; background:#fff; color:#000; }
+    .sheet { width:210mm; margin:0 auto; padding:10mm; box-sizing:border-box; }
+
+    /* Table basics - mimic printed checklist look */
+    table.checklist {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 11px;
+    }
+    table.checklist th, table.checklist td {
+      border: 1px solid #000;
+      padding: 6px 8px;
+      vertical-align: top;
+    }
+    table.checklist th {
+      text-align: center;
+      font-weight:700;
+    }
+
+    /* Header title */
+    .title {
+      text-align:center;
+      font-size:16px;
+      font-weight:700;
+      padding:6px 0;
+    }
+
+    /* Narrow columns */
+    .col-no { width: 4%; text-align:center; }
+    .col-item { width: 56%; }
+    .col-status { width: 20%; text-align:center; }
+    .col-remarks { width: 20%; }
+
+    /* Section grouping style */
+    .section-row td {
+      font-weight:700;
+      text-align:left;
+      background: transparent;
+    }
+    .subheading {
+      font-weight:700;
+      padding-left:6px;
+    }
+
+    /* Make checkboxes line up like in the scan */
+    .checkbox-line { display:flex; align-items:flex-start; gap:6px; margin-bottom:6px; }
+    .checkbox-line input[type="checkbox"] { transform: scale(1.05); margin-top:3px; }
+
+    /* Smaller note area/footer */
+    .note { font-size:9px; padding:6px; line-height:1.05; }
+
+    /* Print friendly */
+    @media print {
+      body { margin:0; }
+      .sheet { box-shadow:none; margin:0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="title">TEF Travel Checklist</div>
+
+    <table class="checklist" role="table" aria-label="TEF Travel Checklist">
+      <thead>
+        <tr>
+          <th class="col-no">#</th>
+          <th class="col-item">Travel Checkpoints</th>
+          <th class="col-status">Status</th>
+          <th class="col-remarks">Remarks</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <!-- Row 1 -->
+        <tr>
+          <td class="col-no">1</td>
+          <td class="col-item">
+            <div class="subheading">Travel budget confirmation by the respective cost center</div>
+            <div style="margin-top:6px;">
+              <div class="checkbox-line"><input type="checkbox">Department budget</div>
+              <div class="checkbox-line"><input type="checkbox">Project budget</div>
+            </div>
+          </td>
+          <td class="col-status">
+            <div> 
+              <div class="checkbox-line"><input type="checkbox"> Approved</div>
+              <div class="checkbox-line"><input type="checkbox"> Not Approved</div>
+            </div>
+          </td>
+          <td class="col-remarks"></td>
+        </tr>
+
+        <!-- Row 2 -->
+        <tr>
+          <td class="col-no">2</td>
+          <td class="col-item">
+            <div class="subheading">Pre-approval of travel request by department manager / project manager</div>
+            <div style="margin-top:6px;">
+              <div class="checkbox-line"><input type="checkbox">Manager approval</div>
+              <div class="checkbox-line"><input type="checkbox">Proj. Manager approval</div>
+            </div>
+          </td>
+          <td class="col-status">
+            <div class="checkbox-line"><input type="checkbox"> Pending</div>
+            <div class="checkbox-line"><input type="checkbox"> Approved</div>
+            <div class="checkbox-line"><input type="checkbox"> Rejected</div>
+          </td>
+          <td class="col-remarks"></td>
+        </tr>
+
+        <!-- Row 3 -->
+        <tr>
+          <td class="col-no">3</td>
+          <td class="col-item">
+            <div class="subheading">Travel Category</div>
+            <div style="margin-top:6px;">
+              <div class="checkbox-line"><input type="checkbox">Business</div>
+              <div class="checkbox-line"><input type="checkbox">Training</div>
+              <div class="checkbox-line"><input type="checkbox">Conference</div>
+              <div class="checkbox-line"><input type="checkbox">Others</div>
+            </div>
+          </td>
+          <td class="col-status"></td>
+          <td class="col-remarks"></td>
+        </tr>
+
+        <!-- Row 4 -->
+        <tr>
+          <td class="col-no">4</td>
+          <td class="col-item">
+            <div class="subheading">Travel mode and class approved</div>
+            <div style="margin-top:6px;">
+              <div class="checkbox-line"><input type="checkbox">Air</div>
+              <div class="checkbox-line"><input type="checkbox">Train</div>
+              <div class="checkbox-line"><input type="checkbox">Road</div>
+            </div>
+          </td>
+          <td class="col-status">
+            <div class="checkbox-line"><input type="checkbox">Economy</div>
+            <div class="checkbox-line"><input type="checkbox">Business</div>
+            <div class="checkbox-line"><input type="checkbox">First</div>
+          </td>
+          <td class="col-remarks"></td>
+        </tr>
+
+        <!-- Row 5 -->
+        <tr>
+          <td class="col-no">5</td>
+          <td class="col-item">
+            <div class="subheading">Visa / Travel documents checked</div>
+            <div style="margin-top:6px;">
+              <div class="checkbox-line"><input type="checkbox">Passport valid</div>
+              <div class="checkbox-line"><input type="checkbox">Visa applied / approved</div>
+              <div class="checkbox-line"><input type="checkbox">Other documents</div>
+            </div>
+          </td>
+          <td class="col-status"></td>
+          <td class="col-remarks"></td>
+        </tr>
+
+        <!-- Row 6 -->
+        <tr>
+          <td class="col-no">6</td>
+          <td class="col-item">
+            <div class="subheading">Accommodation booking confirmed</div>
+            <div style="margin-top:6px;">
+              <div class="checkbox-line"><input type="checkbox">Hotel booked</div>
+              <div class="checkbox-line"><input type="checkbox">Hostel / Guest house</div>
+            </div>
+          </td>
+          <td class="col-status"></td>
+          <td class="col-remarks"></td>
+        </tr>
+
+        <!-- Row 7 -->
+        <tr>
+          <td class="col-no">7</td>
+          <td class="col-item">
+            <div class="subheading">Local transport plan made</div>
+            <div style="margin-top:6px;">
+              <div class="checkbox-line"><input type="checkbox">Airport transfers</div>
+              <div class="checkbox-line"><input type="checkbox">Local taxi / car hire</div>
+            </div>
+          </td>
+          <td class="col-status"></td>
+          <td class="col-remarks"></td>
+        </tr>
+
+        <!-- Row 8 -->
+        <tr>
+          <td class="col-no">8</td>
+          <td class="col-item">
+            <div class="subheading">Travel insurance arranged</div>
+            <div style="margin-top:6px;">
+              <div class="checkbox-line"><input type="checkbox">Insurance purchased</div>
+              <div class="checkbox-line"><input type="checkbox">Policy number documented</div>
+            </div>
+          </td>
+          <td class="col-status"></td>
+          <td class="col-remarks"></td>
+        </tr>
+
+        <!-- Row 9 -->
+        <tr>
+          <td class="col-no">9</td>
+          <td class="col-item">
+            <div class="subheading">Health & vaccinations reviewed</div>
+            <div style="margin-top:6px;">
+              <div class="checkbox-line"><input type="checkbox">Vaccination up to date</div>
+              <div class="checkbox-line"><input type="checkbox">Medical clearance</div>
+            </div>
+          </td>
+          <td class="col-status"></td>
+          <td class="col-remarks"></td>
+        </tr>
+
+        <!-- Row 10 -->
+        <tr>
+          <td class="col-no">10</td>
+          <td class="col-item">
+            <div class="subheading">Emergency contacts & itinerary shared</div>
+            <div style="margin-top:6px;">
+              <div class="checkbox-line"><input type="checkbox">Emergency contact provided</div>
+              <div class="checkbox-line"><input type="checkbox">Full itinerary shared</div>
+            </div>
+          </td>
+          <td class="col-status"></td>
+          <td class="col-remarks"></td>
+        </tr>
+
+        <!-- Additional grouped sections (replicate the look of the scanned PDF) -->
+        <tr class="section-row">
+          <td colspan="4" style="padding:10px;">
+            <strong>Other Approvals / Comments</strong>
+            <div style="margin-top:8px;">
+              <div style="display:flex; gap:12px;">
+                <div style="flex:1; border:1px solid #000; padding:8px; min-height:60px;">Department Head Signature / Stamp</div>
+                <div style="flex:1; border:1px solid #000; padding:8px; min-height:60px;">Finance Approval</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Footer / Notes area like the scanned image -->
+        <tr>
+          <td colspan="4" class="note">
+            <strong>NOTE :</strong> Company Reimbursement Policies and other instructions go here. 
+            <br><br>
+            <em>Example notes (replicated):</em><br>
+            • Travel expenses should be supported with original invoices. <br>
+            • Personal travel or unauthorized upgrades are not reimbursable. <br>
+            • All approvals should be obtained prior to booking travel.
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
