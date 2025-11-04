@@ -1,0 +1,223 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TEF Travel Checklist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            width: 85%;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2a4d7f;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        table th {
+            background-color: #2a4d7f;
+            color: white;
+        }
+
+        input[type=text], select {
+            width: 95%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .actions {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #2a4d7f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #18345c;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #2a4d7f;
+        }
+
+        .result-table {
+            margin-top: 30px;
+            border: 2px solid #2a4d7f;
+        }
+    </style>
+</head>
+<body>
+
+<h2>TEF Travel Checklist</h2>
+
+<form action="submitTravelChecklist" method="post">
+
+<table>
+<tr>
+    <th>Travel Checkpoints</th>
+    <th>Status</th>
+    <th>Remarks</th>
+</tr>
+
+<tr>
+    <td>Travel budget confirmation by respective cost center</td>
+    <td>
+        <input type="checkbox"> Department budget <br>
+        <input type="checkbox"> Project budget
+    </td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>Pre-approval of travel request</td>
+    <td>
+        <input type="checkbox"> Approved <br>
+        <input type="checkbox"> Not Approved
+    </td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>Travel Category</td>
+    <td>
+        <input type="checkbox"> Business Visit <br>
+        <input type="checkbox"> Training <br>
+        <input type="checkbox"> Deputation <br>
+        <input type="checkbox"> Others
+    </td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>Travel intent raised through Easy Trip portal</td>
+    <td>
+        <input type="radio" name="intentRaised" value="yes"> YES
+        <input type="radio" name="intentRaised" value="no"> NO
+    </td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>Intent Approval Segment</td>
+    <td>
+        <input type="checkbox"> TEF Department Approval <br>
+        <input type="checkbox"> P&T Approval <br>
+        <input type="checkbox"> All intimation to P&IT
+    </td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>Flight booking mode and travel class</td>
+    <td>
+        <input type="checkbox"> Economy class <br>
+        <input type="checkbox"> Business class (Only for SL3 and above)
+    </td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>Hotel Booking Allowance</td>
+    <td>
+        <input type="checkbox"> Allowance ≤120 EUR (Direct TEF and P&T approval) <br>
+        <input type="checkbox"> Allowance >120 EUR
+    </td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>Visa Process Completion</td>
+    <td>
+        <input type="checkbox"> Invitation Letter <br>
+        <input type="checkbox"> Travel Insurance <br>
+        <input type="checkbox"> Country Specific Docs <br>
+        <input type="checkbox"> Income Proof Documents <br>
+        <input type="checkbox"> Bank Statements <br>
+        <input type="checkbox"> Salary Slips <br><br>
+
+        Visa Appointment Location: <br>
+        <input type="checkbox"> Bangalore (Preferred) <br>
+        <input type="checkbox"> Others <br><br>
+
+        Physical Passport Required?:
+        <input type="radio" name="physicalPassport" value="yes"> Yes
+        <input type="radio" name="physicalPassport" value="no"> No
+    </td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>Local Transportation Abroad</td>
+    <td>
+        <input type="checkbox"> Allowance ≤ 50 EUR per day <br>
+        <input type="checkbox"> Allowance > 50 EUR (Requires approval)
+    </td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>Currency exchange and expense management</td>
+    <td>
+        <input type="checkbox"> Hotel Invoice <br>
+        <input type="checkbox"> Meal & Taxi Expense Records <br>
+        <input type="checkbox"> GST Invoice <br>
+        <input type="checkbox"> ATM / Exchange Slip
+    </td>
+    <td></td>
+</tr>
+
+<tr>
+    <td>Travel settlement process</td>
+    <td>
+        Submit all bills & receipts for reimbursement. <br><br>
+        <input type="radio" name="billsSubmitted" value="yes"> YES
+        <input type="radio" name="billsSubmitted" value="no"> NO
+    </td>
+    <td></td>
+</tr>
+
+</table>
+
+<br>
+<button type="submit">Submit Checklist</button>
+
+</form>
+
+</body>
+</html>
